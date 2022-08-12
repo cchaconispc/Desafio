@@ -102,7 +102,9 @@ let jason_alfabeto={
     "bf7612a8-2df6-43f8-9a20-689ea459c8d5": [83],
     "f15f6de4-186f-47cf-9f53-879d641ff78a": [85] }
    
-   
+   // Esta es la funcion que realiza el descifrado de la cadena 
+   //############################################################
+
     function descifrar (alfabeto, pos) {
         cadena=[];
         letras = Object.keys(alfabeto); 
@@ -128,7 +130,7 @@ let jason_alfabeto={
     prueba_alfabeto= {}
     prueba_posiciones ={}
 
-    cadena_de_prueba = "Esta es una prueba funcional para chequear la funcion."
+    cadena_de_prueba = "https://github.com/cchaconispc/Desafio"
 
     for (orden = 0; orden < cadena_de_prueba.length; orden++){
       lista_dir=[] 
@@ -144,6 +146,6 @@ let jason_alfabeto={
         }
     }
 
-console.log(descifrar(prueba_alfabeto,prueba_posiciones));
+console.log("Esta es una prueba, debe mostrar la URL de mi GitHub -> " + descifrar(prueba_alfabeto,prueba_posiciones));
 console.log("Y esta es la URL del desafio -> " + descifrar(jason_alfabeto,jason_posiciones));
 

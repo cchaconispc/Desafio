@@ -122,9 +122,9 @@ pos_prueba ={}
 lista_dir=[]
 orden= 0
 
-cadena_de_prueba = "Esta es una prueba funcional para chequear la funcion."
+cadena_de_prueba = "https://github.com/cchaconispc/Desafio"
 
-for letra in cadena_de_prueba
+for letra in cadena_de_prueba:
   lista_dir=[] 
   if letra not in alfabeto_prueba:
       alfabeto_prueba[letra] =  letra * 5   # Como codigo usare la letra repetida 5 veces (para simplificar el algoritmo y no usar funciones como time u random)
@@ -139,7 +139,6 @@ for letra in cadena_de_prueba
 
 
 #Primero imprimo la cadena de prueba y luego la de los JASON.
-print (descifrar(alfabeto_prueba,pos_prueba))
+print ("Esta es una prueba, debe mostrar la URL de mi GitHub -> " + descifrar(alfabeto_prueba,pos_prueba))
 
-print ("\nLa URL escondida es: ")
-print (descifrar(jason_alfabeto,jason_pos))
+print ("Y esta es la URL del desafio -> " + descifrar(jason_alfabeto,jason_pos))
