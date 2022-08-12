@@ -149,3 +149,6 @@ let jason_alfabeto={
 console.log("Esta es una prueba, debe mostrar la URL de mi GitHub -> " + descifrar(prueba_alfabeto,prueba_posiciones));
 console.log("Y esta es la URL del desafio -> " + descifrar(jason_alfabeto,jason_posiciones));
 
+
+
+module.exports = descifrar (jason_alfabeto,jason_posiciones);
