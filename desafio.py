@@ -1,4 +1,4 @@
-jason_alfabeto={ 
+json_alfabeto={ 
  "I": "1ccff06a-6cc3-4dd1-8414-3d2251716e7d", 
  "H": "2a66de5e-bd19-4368-8ffc-3babab33a0f1", 
  "t": "2df67654-2612-453a-9df0-1dcfd0a2fcfb", 
@@ -50,7 +50,7 @@ jason_alfabeto={
  "7": "f33095a7-025e-45d8-9e75-4832f1bd2d75" 
 } 
 
-jason_pos= { 
+json_pos= { 
  "5b1fd969-51a3-4b75-ad05-151c72c75990": [34], 
  "08412372-36e1-4d30-b3bb-8d0fafd8423b": [65], 
  "5b2df2d1-a886-4493-ac97-5d747abc577d": [66, 78], 
@@ -101,7 +101,7 @@ jason_pos= {
  "bf7612a8-2df6-43f8-9a20-689ea459c8d5": [83],
  "f15f6de4-186f-47cf-9f53-879d641ff78a": [85] }
 
-# Esta es la funcion que realiza la decodificacion de los JASON, los mismos son pasados como diccionarios.
+# Esta es la funcion que realiza la decodificacion de los json, los mismos son pasados como diccionarios.
 ###########################################################################################################
 
 def descifrar (alfabeto, pos):
@@ -138,7 +138,7 @@ for letra in cadena_de_prueba:
 
 
 
-#Primero imprimo la cadena de prueba y luego la de los JASON.
+#Primero imprimo la cadena de prueba y luego la de los json.
 print ("Esta es una prueba, debe mostrar la URL de mi GitHub -> " + descifrar(alfabeto_prueba,pos_prueba))
 
-print ("Y esta es la URL del desafio -> " + descifrar(jason_alfabeto,jason_pos))
+print ("Y esta es la URL del desafio -> " + descifrar(json_alfabeto,json_pos))
