@@ -42,7 +42,7 @@
 
 
     function crear_dicc (){
-        let cadena_original= "Que poronga para realizar que es esto";          // Acá coloco la frase que quiera pasar para trabajar
+        let cadena_original= "Viva Racing, es la mejora frase";          // Acá coloco la frase que quiera pasar para trabajar
 
         let retorno = desordenar(cadena_original);                                      // Usar una promesa aca
         
