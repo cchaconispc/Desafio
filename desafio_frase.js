@@ -1,5 +1,6 @@
 
    function mover_letras(cadena){
+        if (cadena.length <= 3) return Error;
         let aux="";
         let  y = 1;
         let z;
@@ -26,11 +27,12 @@
 
 
     function desordenar (cadena) {
-        
-        let cadena_aux = cadena.split("").reverse();         // primero invertimos la cadena original (haciendola lista)
+        if (cadena.length <4) return 
+        let cadena_aux = cadena.split("").reverse()        // primero invertimos la cadena original (haciendola lista)
         cadena_aux = mover_letras(cadena_aux);
-
+        
         let recortada ="";
+
         cadena_aux.forEach((letra, indice) => {                         // Usamos un RANDOM de posibilidad 1 / 3 para
             if (Math.floor(Math.random()*2) == 1) {                     // decidir cuales letras se recortan
                 recortada += letra;
@@ -42,13 +44,14 @@
 
 
     function crear_dicc (){
-        let cadena_original= "Viva Racing, es la mejora frase";          // Acá coloco la frase que quiera pasar para trabajar
+        let cadena_original= "Viva Racing Carajo";          // Acá coloco la frase que quiera pasar para trabajar
 
-        let retorno = desordenar(cadena_original);                                      // Usar una promesa aca
+        let retorno = desordenar(cadena_original);
+        if (retorno == null) return;                                    // si no pudo desordenar por ser corta la cadena, retorno null para error en promesa
         
-        let desordenada= retorno[0].split("");                                 // Como retorna una cadena (pedido del desafio), la paso  
-        let recortada = retorno[1].split("");                                  // a lista para trabajar.
-        
+        let desordenada= retorno[0].split("");   
+        let recortada = retorno[1].split(""); 
+
         let dicc={};
         let auxiliar = letras_frase_cortada(recortada);                        // Genero un iterador (generator) para tomar las letras que quedaron
                                                                                
@@ -91,7 +94,30 @@
     }
     
 
-console.log(ordenar());
+    
+    let procesar = new Promise (function(resolve) { 
+        resolve(crear_dicc())
+        
+      })
+        .then(retorno => {
+            if (retorno) {
+                return (ordenar(retorno))
+            }
+            else {
+                throw new Error("No se pudo codificar la cadena")
+            }
+        
+      })
+        .then(cadena => {
+            if (cadena != null) {
+                return console.log(cadena);
+            }
+            else {
+                throw new Error('No se pudo decodificar la cadena');
+            }
+    })
+    
+
 
 
 
