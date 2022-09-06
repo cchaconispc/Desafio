@@ -1,13 +1,13 @@
 
    function mover_letras(cadena){
-        if (cadena.length <= 3) return Error;
+        if (cadena.length < 4) return;
         let aux="";
         let  y = 1;
         let z;
         let cadena_aux = cadena;
         let largo = cadena_aux.length;
 
-        for (x = 1; x < cadena.length / 2; x = y + z){                  //Reordeno los caracteres de la cadena.
+        for (let x = 1; x < cadena.length / 2; x = y + z){                  //Reordeno los caracteres de la cadena.
             z = y;
             y = x;                                                      // Usamos la serie de Fibonachi para ver cuales cambiamos
             aux = cadena_aux [x];                                       // de lugar, para desordernar la cadena original (podria ser los impares,
@@ -27,14 +27,14 @@
 
 
     function desordenar (cadena) {
-        if (cadena.length <4) return 
+        if (cadena.length < 4) return; 
         let cadena_aux = cadena.split("").reverse()        // primero invertimos la cadena original (haciendola lista)
         cadena_aux = mover_letras(cadena_aux);
         
         let recortada ="";
 
         cadena_aux.forEach((letra, indice) => {                         // Usamos un RANDOM de posibilidad 1 / 3 para
-            if (Math.floor(Math.random()*2) == 1) {                     // decidir cuales letras se recortan
+            if (Math.floor(Math.random() * 2) == 1) {                     // decidir cuales letras se recortan
                 recortada += letra;
             }
         })
@@ -44,10 +44,11 @@
 
 
     function crear_dicc (){
-        let cadena_original= "Viva Racing Carajo";          // Acá coloco la frase que quiera pasar para trabajar
+        let cadena_original= "Esta es la cadena de prueba, del desafio";          // Acá coloco la frase que quiera pasar para trabajar podria haber sido pasada por paramentro, pero esto pedia el desafio. 
 
         let retorno = desordenar(cadena_original);
-        if (retorno == null) return;                                    // si no pudo desordenar por ser corta la cadena, retorno null para error en promesa
+        if (retorno == null) return;                                    // si no pudo desordenar por ser corta la cadena(menos de 4 caracteres)
+                                                                        //, retorno null para error en promesa
         
         let desordenada= retorno[0].split("");   
         let recortada = retorno[1].split(""); 
@@ -72,6 +73,7 @@
         let dicc = retorno[1];
 
         let cadena = [];
+        let cadena_aux = [];
         Object.keys(dicc).forEach((letra) => {                              //Coloco cada letra del diccionario en su lugar correcto
                 dicc[letra].forEach((lugar) => {                            // segun la lista de cada clave.
                     cadena[lugar] = letra;
